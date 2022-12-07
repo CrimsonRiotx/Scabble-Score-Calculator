@@ -1,65 +1,30 @@
 class Scrabble {
 
-    String word;
-    boolean isValidWord;
+    private String word;
 
-    Scrabble (String word) {
-        this.word = word.toLowerCase();
+    public void setWord(String newWord){
+        word = newWord;
     }
 
-
     int getScore() {
+        String convertWord = word.toLowerCase();
         int score = 0;
         int ind = 0;
         boolean isValidWord = true;
-        while (ind < word.length()) {
+        while (ind < convertWord.length()) {
             //switch statement to count/add score for each letter's occurrence
-            switch (word.charAt(ind)) {
-                case 'a':
-                case 'e':
-                case 'i':
-                case 'l':
-                case 'n':
-                case 'o':
-                case 'r':
-                case 's':
-                case 't':
-                case 'u':
-                    score++;
-                    break;
-                case 'd':
-                case 'g':
-                    score += 2;
-                    break;
-                case 'b':
-                case 'c':
-                case 'm':
-                case 'p':
-                    score += 3;
-                    break;
-
-                case 'f':
-                case 'h':
-                case 'v':
-                case 'w':
-                case 'y':
-                    score += 4;
-                    break;
-                case 'k':
-                    score += 5;
-                    break;
-                case 'j':
-                case 'x':
-                    score += 8;
-                    break;
-                case 'q':
-                case 'z':
-                    score += 10;
-                    break;
-                default: isValidWord = false; break;
+            switch (convertWord.charAt(ind)) {
+                case 'a', 'e', 'i', 'l', 'n', 'o', 'r', 's', 't', 'u' -> score++;
+                case 'd', 'g' -> score += 2;
+                case 'b', 'c', 'm', 'p' -> score += 3;
+                case 'f', 'h', 'v', 'w', 'y' -> score += 4;
+                case 'k' -> score += 5;
+                case 'j', 'x' -> score += 8;
+                case 'q', 'z' -> score += 10;
+                default -> isValidWord = false;
             }
             ind++;
-        }if(isValidWord = true) {
+        }if(isValidWord) {
             return score;
         }
         else return 0;
