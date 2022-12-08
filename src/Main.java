@@ -5,8 +5,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
         Scrabble scrabble = new Scrabble();
+        Welcome welcome1 = new Welcome();
         Scanner input = new Scanner(System.in);
         ClearScreen.clearConsole();
+        welcome1.welcome();
         System.out.println("Welcome to the Scrabble Score Calculator!\nInput the word you would like to calculate:");
         String userInput = input.nextLine();
         scrabble.setWord(userInput);
