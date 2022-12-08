@@ -1,4 +1,4 @@
-# Scabble-Score-Calculator
+# Scrabble-Score-Calculator
 
 Project for calculating a word's score in scrabble. Initial problem comes from https://exercism.org/tracks/java/exercises/scrabble-score
 
