@@ -24,7 +24,7 @@ public class Main {
         boolean isNotVerified = true;
         while (isNotVerified) {
             testWord = scrabble.getWord();
-            if (new Scanner(new File("/Users/samuedut/IdeaProjects/Scrabble-Score-Calculator/Dictionary.txt")).useDelimiter("\\Z").next().contains(testWord)) {
+            if (new Scanner(new File("src/Dictionary.txt")).useDelimiter("\\Z").next().contains(testWord)) {
                 System.out.println("your score is " + scrabble.getScore());
                 isNotVerified = false;
             } else {
