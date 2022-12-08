@@ -5,6 +5,9 @@ class Scrabble {
     public void setWord(String newWord){
         word = newWord;
     }
+    public String getWord(){
+        return word;
+    }
 
     int getScore() {
         String convertWord = word.toLowerCase();
