@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
-        Scrabble scrabble = new Scrabble();
+        ScrabbleScore scrabble = new ScrabbleScore();
         //Welcome welcome1 = new Welcome();
         Scanner input = new Scanner(System.in);
         ClearScreen.clearConsole();

@@ -1,4 +1,4 @@
-class Scrabble {
+class ScrabbleScore {
 
     private String word;
 
