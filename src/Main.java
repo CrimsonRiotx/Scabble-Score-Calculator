@@ -1,14 +1,14 @@
-import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
         Scrabble scrabble = new Scrabble();
-        Welcome welcome1 = new Welcome();
+        //Welcome welcome1 = new Welcome();
         Scanner input = new Scanner(System.in);
         ClearScreen.clearConsole();
-        welcome1.welcome();
+        //welcome1.welcome();
         System.out.println("Welcome to the Scrabble Score Calculator!\nInput the word you would like to calculate:");
         String userInput = input.nextLine();
         scrabble.setWord(userInput);
@@ -22,13 +22,24 @@ public class Main {
             scrabble.setWord(userInput);
             scrabble.getScore();
         }
-        String testWord;
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        InputStream input1 = classLoader.getResourceAsStream("Dictionary.txt");
         boolean isNotVerified = true;
+        Scanner dictionary = new Scanner(input1);
+        StringBuilder str = new StringBuilder();
+        while(dictionary.hasNext()){
+            str.append(dictionary.next());
+        }
+        String dict1 = str.toString();
         while (isNotVerified) {
-            testWord = scrabble.getWord();
-            if (new Scanner(new File("src/Dictionary.txt")).useDelimiter("\\Z").next().contains(testWord)) {
+            String testWord = scrabble.getWord();
+            if(dict1.contains(testWord)){
                 System.out.println("your score is " + scrabble.getScore());
                 isNotVerified = false;
+            /*if (new Scanner(new File("src/Dictionary.txt")).useDelimiter("\\Z").next().contains(testWord)) {
+                System.out.println("your score is " + scrabble.getScore());
+                isNotVerified = false;
+             */
             } else {
                 ClearScreen.clearConsole();
                 System.out.println("Not a valid word");
